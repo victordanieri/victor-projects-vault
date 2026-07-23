@@ -1,0 +1,304 @@
+{
+  "nodes": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# 🏨 Hotel Danieri\n**Hotel Manager v5** — Flujo completo del sistema",
+      "x": -200,
+      "y": -600,
+      "width": 400,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "ota",
+      "type": "file",
+      "file": "Hotel Danieri/08 - Canales OTA.md",
+      "x": -600,
+      "y": -420,
+      "width": 220,
+      "height": 80,
+      "color": "3"
+    },
+    {
+      "id": "booking",
+      "type": "text",
+      "text": "📱 Booking.com",
+      "x": -820,
+      "y": -520,
+      "width": 160,
+      "height": 50,
+      "color": "3"
+    },
+    {
+      "id": "expedia",
+      "type": "text",
+      "text": "✈️ Expedia",
+      "x": -820,
+      "y": -460,
+      "width": 160,
+      "height": 50,
+      "color": "3"
+    },
+    {
+      "id": "local",
+      "type": "text",
+      "text": "🏠 Reserva local",
+      "x": -820,
+      "y": -400,
+      "width": 160,
+      "height": 50,
+      "color": "3"
+    },
+    {
+      "id": "dashboard",
+      "type": "file",
+      "file": "Hotel Danieri/01 - Dashboard.md",
+      "x": -100,
+      "y": -420,
+      "width": 220,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "habitaciones",
+      "type": "file",
+      "file": "Hotel Danieri/02 - Habitaciones.md",
+      "x": -100,
+      "y": -260,
+      "width": 220,
+      "height": 80,
+      "color": "2"
+    },
+    {
+      "id": "mucamas",
+      "type": "text",
+      "text": "🧹 Mucamas\nAsignar limpieza → Marcar lista",
+      "x": 200,
+      "y": -260,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "consumicion",
+      "type": "file",
+      "file": "Hotel Danieri/03 - Consumicion.md",
+      "x": -100,
+      "y": -100,
+      "width": 220,
+      "height": 80,
+      "color": "2"
+    },
+    {
+      "id": "inventario",
+      "type": "file",
+      "file": "Hotel Danieri/04 - Inventario.md",
+      "x": 200,
+      "y": -100,
+      "width": 220,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "caja",
+      "type": "file",
+      "file": "Hotel Danieri/05 - Caja y Cobros.md",
+      "x": -100,
+      "y": 60,
+      "width": 220,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "clientes",
+      "type": "file",
+      "file": "Hotel Danieri/07 - Clientes.md",
+      "x": -400,
+      "y": 60,
+      "width": 220,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "finanzas",
+      "type": "file",
+      "file": "Hotel Danieri/06 - Finanzas.md",
+      "x": 200,
+      "y": 60,
+      "width": 220,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "auditoria",
+      "type": "file",
+      "file": "Hotel Danieri/09 - Auditoria.md",
+      "x": -400,
+      "y": -100,
+      "width": 220,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "config",
+      "type": "file",
+      "file": "Hotel Danieri/10 - Config.md",
+      "x": -400,
+      "y": -260,
+      "width": 220,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "estados",
+      "type": "text",
+      "text": "**Estados de habitación**\n⬜ Libre\n🔵 Reserva\n🟠 Check-in con deuda\n🟢 Check-in pagado\n🔴 Cerrada",
+      "x": 200,
+      "y": -420,
+      "width": 200,
+      "height": 150,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "booking",
+      "fromSide": "right",
+      "toNode": "ota",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "expedia",
+      "fromSide": "right",
+      "toNode": "ota",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "local",
+      "fromSide": "right",
+      "toNode": "ota",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "ota",
+      "fromSide": "right",
+      "toNode": "dashboard",
+      "toSide": "left",
+      "label": "Reservas"
+    },
+    {
+      "id": "e5",
+      "fromNode": "dashboard",
+      "fromSide": "bottom",
+      "toNode": "habitaciones",
+      "toSide": "top",
+      "label": "Check-in"
+    },
+    {
+      "id": "e6",
+      "fromNode": "habitaciones",
+      "fromSide": "right",
+      "toNode": "estados",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "habitaciones",
+      "fromSide": "right",
+      "toNode": "mucamas",
+      "toSide": "left",
+      "label": "Checkout → sucia"
+    },
+    {
+      "id": "e8",
+      "fromNode": "mucamas",
+      "fromSide": "left",
+      "toNode": "habitaciones",
+      "toSide": "right",
+      "label": "Marcar limpia"
+    },
+    {
+      "id": "e9",
+      "fromNode": "habitaciones",
+      "fromSide": "bottom",
+      "toNode": "consumicion",
+      "toSide": "top",
+      "label": "Cargos"
+    },
+    {
+      "id": "e10",
+      "fromNode": "inventario",
+      "fromSide": "left",
+      "toNode": "consumicion",
+      "toSide": "right",
+      "label": "Descuenta stock"
+    },
+    {
+      "id": "e11",
+      "fromNode": "consumicion",
+      "fromSide": "bottom",
+      "toNode": "caja",
+      "toSide": "top",
+      "label": "Suma al saldo"
+    },
+    {
+      "id": "e12",
+      "fromNode": "caja",
+      "fromSide": "right",
+      "toNode": "finanzas",
+      "toSide": "left",
+      "label": "Movimientos"
+    },
+    {
+      "id": "e13",
+      "fromNode": "caja",
+      "fromSide": "left",
+      "toNode": "clientes",
+      "toSide": "right",
+      "label": "Historial pagos"
+    },
+    {
+      "id": "e14",
+      "fromNode": "habitaciones",
+      "fromSide": "left",
+      "toNode": "clientes",
+      "toSide": "right",
+      "label": "Registra huésped"
+    },
+    {
+      "id": "e15",
+      "fromNode": "config",
+      "fromSide": "right",
+      "toNode": "dashboard",
+      "toSide": "left"
+    },
+    {
+      "id": "e16",
+      "fromNode": "consumicion",
+      "fromSide": "left",
+      "toNode": "auditoria",
+      "toSide": "right",
+      "label": "Log"
+    },
+    {
+      "id": "e17",
+      "fromNode": "caja",
+      "fromSide": "left",
+      "toNode": "auditoria",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e18",
+      "fromNode": "dashboard",
+      "fromSide": "bottom",
+      "toNode": "finanzas",
+      "toSide": "top",
+      "label": "Resumen día"
+    }
+  ]
+}
