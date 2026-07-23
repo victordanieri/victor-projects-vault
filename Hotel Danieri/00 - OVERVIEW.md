@@ -6,6 +6,8 @@
 **Base de datos:** Supabase (danieri_hotel_v5)  
 **Stack:** Single-file HTML + Vanilla JS + Supabase + GitHub Pages  
 
+> ✅ **Obsidian + GitHub sincronizado correctamente** — 22/07/2026
+
 ---
 
 ## Módulos del sistema
@@ -54,6 +56,7 @@
 - 🟢 Sistema online y funcionando
 - 🟢 Supabase como fuente de verdad
 - 🟢 GitHub API conectada (Claude escribe directamente)
+- 🟢 Obsidian vault sincronizado con GitHub
 - 🟡 Integraciones entre módulos — pendiente revisión
 - 🔴 Extensión Chrome Booking — pendiente
 - 🔴 Dominio propio — pendiente
