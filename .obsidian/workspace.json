@@ -74,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f468c57117634d62",
@@ -158,13 +157,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "939e26405f0842d1",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,6 +189,10 @@
   },
   "active": "a5b55372ee95b0c6",
   "lastOpenFiles": [
+    "INDEX.md",
+    "2026-08-09.md",
+    "Untitled.canvas",
+    "Hotel Danieri/Hotel Manager - Flujo.canvas.tmp.31344.f2ca995d6cbc",
     "Hotel Danieri/03 - Caja y Cobros.md",
     "Hotel Danieri/Hotel Manager - Flujo.canvas.tmp.31344.fb0aee41c011",
     "Hotel Danieri/00 - OVERVIEW.md.tmp.31344.3adc7eb5bd03",
@@ -191,7 +204,6 @@
     "Hotel Danieri/sedLItjQT",
     "Hotel Danieri/02 - Operaciones/Blanqueria.md.tmp.31344.47050fc95f69",
     "Hotel Danieri/02 - Operaciones/Otros Sub-tabs.md",
-    "Hotel Danieri/02 - Operaciones/Otros Sub-tabs.md.tmp.31344.6e79e9a15c1b",
     "Hotel Danieri/02 - Operaciones/Cocina.md",
     "Hotel Danieri/02 - Operaciones/Inventario (FB).md",
     "Hotel Danieri/02 - Operaciones.md",
@@ -209,8 +221,6 @@
     "Hotel Danieri/01 - Vista General.md",
     "Hotel Danieri/Hotel Manager - Flujo.canvas",
     "Pasted image 20260722213749.png",
-    "Untitled.canvas",
-    "Hotel Danieri/00 - OVERVIEW.md",
-    "INDEX.md"
+    "Hotel Danieri/00 - OVERVIEW.md"
   ]
 }
