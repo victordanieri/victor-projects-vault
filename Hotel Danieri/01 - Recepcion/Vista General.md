@@ -1,17 +1,16 @@
 # 📊 Vista General
 
-**Tab real en el menú:** no es un tab propio — es la sub-vista "Vista general"
-(botón 👁️/📊, `rt==='resumen'`) dentro del tab **Recepción**, junto con
-[[02 - Habitaciones]] e Historial de estadías. El código interno la llama
-"Dashboard" (`renderDash()`), pero ese nombre no aparece en la UI.
+Sub-tab de [[01 - Recepcion]] (botón "Vista general", `rt==='resumen'`). El
+código interno la llama "Dashboard" (`renderDash()`), pero ese nombre no
+aparece en la UI.
 
 **Función:** Resumen del día — ocupación, alertas, check-ins activos, reservas próximas
 
 ## Conexiones
-- ← [[08 - Canales OTA]] — trae reservas del día
-- → [[02 - Habitaciones]] — muestra mapa de ocupación
-- → [[05 - Caja y Cobros]] — muestra cobrado hoy y pendiente
-- ↔ [[03 - Consumicion]] — muestra cargos pendientes
+- ← [[06 - Canales OTA]] — trae reservas del día
+- → [[Habitaciones]] — muestra mapa de ocupación
+- → [[03 - Caja y Cobros]] — muestra cobrado hoy y pendiente
+- ↔ [[02 - Operaciones]] — muestra cargos pendientes
 
 ## Indicadores que muestra
 - Ocupadas / Total habitaciones

@@ -3,10 +3,10 @@
 **Función:** Apertura/cierre de caja, cobros de estadías, pagos manuales
 
 ## Conexiones
-- ← [[02 - Habitaciones]] — checkout genera cobro
-- ← [[03 - Consumicion]] — cargos pendientes se cobran acá
-- → [[06 - Finanzas]] — movimientos van al reporte financiero
-- → [[01 - Vista General]] — muestra cobrado hoy y pendiente
+- ← [[Habitaciones]] — checkout genera cobro
+- ← [[Consumicion]] — cargos pendientes se cobran acá
+- → [[04 - Finanzas]] — movimientos van al reporte financiero
+- → [[Vista General]] — muestra cobrado hoy y pendiente
 
 ## Reglas de negocio
 - Solo puede haber UNA caja abierta por recepcionista a la vez

@@ -19,38 +19,39 @@
 
 ## Navegación real del sistema (8 tabs, `navItems()` en index.html:935)
 
-Los 11 archivos de este vault documentan **funcionalidades**, no son 1:1 con
-los tabs del menú. La navegación real es:
+Los 8 módulos principales del vault ahora son 1:1 con los 8 tabs reales del
+menú. Los que tienen sub-tabs son carpetas con un archivo índice (`0N - Nombre.md`)
+más sus divisiones adentro:
 
-1. **Recepción** → sub-tabs: Vista general ([[01 - Vista General]]), [[02 - Habitaciones]], Historial estadías
-2. **Operaciones** → sub-tabs: [[03 - Consumicion]], [[04 - Blanqueria]] (Blanquería), sub-tab "Inventario" (Consumición F&B), Desayuno, Cocina, Precios, Imprimir
-3. [[05 - Caja y Cobros]] — tab propio
-4. [[06 - Finanzas]] — tab propio
-5. [[07 - Clientes]] — tab propio
-6. [[08 - Canales OTA]] — tab propio
-7. [[09 - Auditoria]] — tab propio
-8. [[10 - Config]] — tab propio
+1. [[01 - Recepcion]] (carpeta) → [[Vista General]], [[Habitaciones]], Historial estadías
+2. [[02 - Operaciones]] (carpeta) → [[Consumicion]], [[Inventario (FB)]], [[Blanqueria]], [[Cocina]], [[Otros Sub-tabs]]
+3. [[03 - Caja y Cobros]] — tab propio, sin sub-tabs
+4. [[04 - Finanzas]] — tab propio
+5. [[05 - Clientes]] — tab propio
+6. [[06 - Canales OTA]] — tab propio
+7. [[07 - Auditoria]] — tab propio
+8. [[08 - Config]] — tab propio
 
 ---
 
 ## Flujo principal de una reserva
 
 ```
-[[08 - Canales OTA]] → Reserva ingresa
+[[06 - Canales OTA]] → Reserva ingresa
         ↓
-[[01 - Vista General]] → Aparece en "Reservas próximas"
+[[Vista General]] → Aparece en "Reservas próximas"
         ↓
-[[02 - Habitaciones]] → Check-in confirma ocupación
+[[Habitaciones]] → Check-in confirma ocupación
         ↓
-[[03 - Consumicion]] → Cargos durante estadía
+[[Consumicion]] → Cargos durante estadía
         ↓
-[[05 - Caja y Cobros]] → Cobro al hacer checkout
+[[03 - Caja y Cobros]] → Cobro al hacer checkout
         ↓
-[[07 - Clientes]] → Historial del huésped actualizado
+[[05 - Clientes]] → Historial del huésped actualizado
         ↓
-[[02 - Habitaciones]] → Habitación pasa a "Pendiente aseo"
+[[Habitaciones]] → Habitación pasa a "Pendiente aseo"
         ↓
-[[01 - Vista General]] → Mucama marca como limpia → Libre
+[[Vista General]] → Mucama marca como limpia → Libre
 ```
 
 ---

@@ -3,9 +3,9 @@
 **Función:** Gestión de canales de venta online — Booking, Expedia, Local
 
 ## Conexiones
-- → [[01 - Vista General]] — reservas aparecen en "Próximas"
-- → [[02 - Habitaciones]] — reservas confirmadas bloquean habitación
-- ← [[07 - Clientes]] — datos del huésped
+- → [[Vista General]] — reservas aparecen en "Próximas"
+- → [[Habitaciones]] — reservas confirmadas bloquean habitación
+- ← [[05 - Clientes]] — datos del huésped
 
 ## Canales configurados
 - 🔵 **Booking.com** — manual por ahora (extensión Chrome pendiente)

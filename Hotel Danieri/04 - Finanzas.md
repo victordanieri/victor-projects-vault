@@ -3,8 +3,8 @@
 **Función:** Reportes de ingresos, egresos y balance por período
 
 ## Conexiones
-- ← [[05 - Caja y Cobros]] — todos los movimientos
-- → [[01 - Vista General]] — resumen del día
+- ← [[03 - Caja y Cobros]] — todos los movimientos
+- → [[Vista General]] — resumen del día
 
 ## Sub-secciones
 - Movimientos (`renderFinMovimientos()`)
