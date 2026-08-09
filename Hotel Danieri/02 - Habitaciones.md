@@ -1,5 +1,9 @@
 # 🛏️ Habitaciones
 
+**Tab real en el menú:** no es un tab propio — es la sub-vista "Habitaciones"
+dentro del tab **Recepción** (junto con [[01 - Dashboard]] e Historial de
+estadías).
+
 **Función:** Mapa visual de habitaciones, estados, check-in/checkout, limpieza
 
 ## Conexiones
@@ -47,5 +51,5 @@ Habitación vuelve a "Libre"
 - Ninguno registrado aún
 
 ## Código
-- Función: `renderHabs()`, `mCheckin()`, `doCheckin()`, `mAsignarLimpieza()`
+- Función: `renderHabs()` (llamada desde `renderRecepcion()`), `mCheckin()`, `doCheckin()`, `mAsignarLimpieza()`
 - Archivo: `index.html`

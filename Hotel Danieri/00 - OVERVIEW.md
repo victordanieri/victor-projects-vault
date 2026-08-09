@@ -17,23 +17,19 @@
 
 ---
 
-## Módulos del sistema
+## Navegación real del sistema (8 tabs, `navItems()` en index.html:935)
 
-### Operativo
-- [[01 - Dashboard]] — Resumen del día, ocupación, alertas
-- [[02 - Habitaciones]] — Mapa de habitaciones, estados, limpieza
-- [[03 - Consumicion]] — Cargos a habitaciones activas
-- [[04 - Inventario]] — Stock de productos y movimientos
-- [[05 - Caja y Cobros]] — Apertura/cierre de caja, cobros, pagos
+Los 11 archivos de este vault documentan **funcionalidades**, no son 1:1 con
+los tabs del menú. La navegación real es:
 
-### Gestión
-- [[06 - Finanzas]] — Reportes financieros, ingresos por período
-- [[07 - Clientes]] — Base de datos de huéspedes, historial
-- [[08 - Canales OTA]] — Booking, Expedia, Local, sincronización
-- [[09 - Auditoria]] — Log de todas las operaciones del sistema
-
-### Configuración
-- [[10 - Config]] — Hotel, monedas, habitaciones, usuarios, datos
+1. **Recepción** → sub-tabs: Vista general ([[01 - Dashboard]]), [[02 - Habitaciones]], Historial estadías
+2. **Operaciones** → sub-tabs: [[03 - Consumicion]], [[04 - Inventario]] (Blanquería), Desayuno, Cocina, Precios, Imprimir
+3. [[05 - Caja y Cobros]] — tab propio
+4. [[06 - Finanzas]] — tab propio
+5. [[07 - Clientes]] — tab propio
+6. [[08 - Canales OTA]] — tab propio
+7. [[09 - Auditoria]] — tab propio
+8. [[10 - Config]] — tab propio
 
 ---
 
@@ -67,11 +63,11 @@
 - 🟡 Integraciones entre módulos — pendiente revisión
 - 🔴 Extensión Chrome Booking — pendiente
 - 🔴 Dominio propio — pendiente
-- 🔴 Sincronización automática Obsidian ↔ código — pendiente de implementar (ver abajo)
+- 🟢 Sincronización automática Obsidian ↔ código — activa (tarea diaria 10am, ver abajo)
 
 ## Sync automático de este vault
-Este vault se actualiza automáticamente 1 vez por día (rutina programada) leyendo
-los commits nuevos en `hotel-danieri` desde la última sincronización y
-actualizando solo los módulos afectados. Última fecha de referencia usada por
-la rutina: commit `4b8a302` (2026-08-07). Si necesitás forzar un sync fuera de
-horario, pedilo directamente.
+Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
+(hora Paraguay) mientras la app esté abierta. Revisa los commits nuevos desde
+el hash de referencia de abajo y actualiza solo los archivos afectados.
+Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
+Si necesitás forzar un sync fuera de horario, pedilo directamente.

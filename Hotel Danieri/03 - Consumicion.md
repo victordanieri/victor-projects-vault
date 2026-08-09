@@ -1,5 +1,9 @@
 # 🍽️ Consumición
 
+**Tab real en el menú:** no es un tab propio — es una sub-vista dentro del tab
+**Operaciones** (junto con Blanquería/[[04 - Inventario]], Desayuno, Cocina,
+Precios e Imprimir).
+
 **Función:** Registrar cargos (comidas, bebidas, servicios) a habitaciones con check-in activo
 
 ## Conexiones

@@ -1,5 +1,9 @@
 # 📦 Inventario (Blanquería / Bienes de uso)
 
+**Tab real en el menú:** no es un tab propio — es una sub-vista dentro del tab
+**Operaciones** (junto con [[03 - Consumicion]], Desayuno, Cocina, Precios e
+Imprimir).
+
 **Función:** Control de stock de bienes de uso del hotel — sábanas, toallas,
 vajilla, muebles, equipos/electrodomésticos, amenities — con categorías,
 ubicaciones, compras y ajuste manual de stock.

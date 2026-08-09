@@ -1,5 +1,9 @@
 # 📊 Dashboard
 
+**Tab real en el menú:** no es un tab propio — es la sub-vista "Vista general"
+dentro del tab **Recepción** (junto con [[02 - Habitaciones]] e Historial de
+estadías). Este archivo documenta esa sub-vista específicamente.
+
 **Función:** Resumen del día — ocupación, alertas, check-ins activos, reservas próximas
 
 ## Conexiones
@@ -30,5 +34,5 @@
 - Ninguno registrado aún
 
 ## Código
-- Función: `renderDash()`
+- Función: `renderDash()`, llamada desde `renderRecepcion()` cuando la sub-tab activa es "resumen"
 - Archivo: `index.html`
