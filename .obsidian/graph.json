@@ -1,22 +1,30 @@
 {
-  "collapse-filter": false,
-  "search": "file:",
+  "collapse-filter": true,
+  "search": "path:\"Hotel Danieri\"  ",
   "showTags": false,
   "showAttachments": true,
   "hideUnresolved": false,
   "showOrphans": false,
   "collapse-color-groups": true,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "path:\"Hotel Danieri\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
-  "textFadeMultiplier": -2.3,
-  "nodeSizeMultiplier": 1.19739583333333,
-  "lineSizeMultiplier": 0.457291666666667,
-  "collapse-forces": true,
-  "centerStrength": 1,
+  "textFadeMultiplier": -0.4,
+  "nodeSizeMultiplier": 0.599003425724073,
+  "lineSizeMultiplier": 0.452507007162878,
+  "collapse-forces": false,
+  "centerStrength": 0.575210214886328,
   "repelStrength": 20,
-  "linkStrength": 1,
+  "linkStrength": 0,
   "linkDistance": 30,
   "scale": 0.4993043013984745,
-  "close": false
+  "close": true
 }
