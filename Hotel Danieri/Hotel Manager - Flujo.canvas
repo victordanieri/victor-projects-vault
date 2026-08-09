@@ -27,7 +27,7 @@
 		{"id":"e7","fromNode":"habitaciones","fromSide":"right","toNode":"mucamas","toSide":"left","label":"Checkout → sucia"},
 		{"id":"e8","fromNode":"mucamas","fromSide":"left","toNode":"habitaciones","toSide":"right","label":"Marcar limpia"},
 		{"id":"e9","fromNode":"habitaciones","fromSide":"bottom","toNode":"consumicion","toSide":"top","label":"Cargos"},
-		{"id":"e10","fromNode":"inventario","fromSide":"left","toNode":"consumicion","toSide":"right","label":"Descuenta stock"},
+		{"id":"e10","fromNode":"inventario","fromSide":"left","toNode":"consumicion","toSide":"right","label":"Blanquería (independiente)"},
 		{"id":"e11","fromNode":"consumicion","fromSide":"bottom","toNode":"caja","toSide":"top","label":"Suma al saldo"},
 		{"id":"e12","fromNode":"caja","fromSide":"right","toNode":"finanzas","toSide":"left","label":"Movimientos"},
 		{"id":"e13","fromNode":"caja","fromSide":"left","toNode":"clientes","toSide":"right","label":"Historial pagos"},

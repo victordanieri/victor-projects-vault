@@ -5,8 +5,11 @@
 ## Conexiones
 - ← [[02 - Habitaciones]] — solo muestra habitaciones con check-in activo
 - → [[05 - Caja y Cobros]] — los cargos suman al saldo del huésped
-- ← [[04 - Inventario]] — descuenta stock al registrar consumo
 - → [[07 - Clientes]] — queda en historial del huésped
+
+**Nota:** el stock de productos de comida/bebida vive DENTRO de este módulo
+(sub-tab propio), no en [[04 - Inventario]] — ese módulo es en realidad
+Blanquería/bienes de uso (sábanas, muebles, equipos), un inventario distinto.
 
 ## Flujo
 ```
@@ -28,5 +31,7 @@ Se cobra al hacer checkout en [[05 - Caja y Cobros]]
 - Ninguno registrado aún — pendiente revisión
 
 ## Código
-- Función: `renderConsumicion()`, `doAddCharge()`
-- Archivo: `index.html` línea ~1400
+- Función: `renderCons()` (contenedor) con sub-tabs `renderConsOperaciones()`,
+  `renderConsVentas()`, `renderConsInventario()` (stock de productos propio),
+  `renderConsImprimir()`; cargo con `doCharge()`
+- Archivo: `index.html`

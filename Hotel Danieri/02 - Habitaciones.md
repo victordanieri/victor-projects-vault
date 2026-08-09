@@ -28,10 +28,18 @@ Marcar como limpia → dirty=false → cleaningLog actualizado
 Habitación vuelve a "Libre"
 ```
 
+## Check-in (actualizado)
+- Precio dual USD/Gs por habitación, con tasa de cambio compra/venta configurable
+- Vuelto calculado automáticamente en tiempo real según método de pago
+- Descuentos requieren PIN de admin
+- Anticipo (si existe reserva con seña) se precarga automáticamente
+- Superadmin puede editar el nombre del huésped ya cargado en la reserva
+- Sin campo "Unidad" — deuda siempre expresada en USD con equivalente en Gs.
+
 ## Estado
 - 🟢 Mapa de habitaciones funciona
-- 🟢 Check-in funciona
-- 🟢 Módulo mucamas implementado (nuevo)
+- 🟢 Check-in funciona (con precio dual y vuelto automático)
+- 🟢 Módulo mucamas implementado
 - 🟡 Revisar flujo checkout → estado habitación
 - 🟡 Revisar responsable automático en check-in
 
@@ -39,5 +47,5 @@ Habitación vuelve a "Libre"
 - Ninguno registrado aún
 
 ## Código
-- Función: `renderHabitaciones()`, `mCheckin()`, `doCheckin()`, `mAsignarLimpieza()`
-- Archivo: `index.html` línea ~950
+- Función: `renderHabs()`, `mCheckin()`, `doCheckin()`, `mAsignarLimpieza()`
+- Archivo: `index.html`

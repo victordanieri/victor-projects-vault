@@ -21,6 +21,9 @@
 - 🟡 Funciona manualmente
 - 🔴 Automatización pendiente
 
+## Sub-secciones
+- Feeds (`renderChFeeds()`), Sync (`renderChSync()`), Log (`renderChLog()`)
+
 ## Código
-- Función: `renderChannels()`
+- Función: `renderChannels()` (contenedor)
 - Archivo: `index.html`

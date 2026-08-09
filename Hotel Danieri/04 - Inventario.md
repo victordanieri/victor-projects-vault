@@ -1,14 +1,30 @@
-# 📦 Inventario
+# 📦 Inventario (Blanquería / Bienes de uso)
 
-**Función:** Control de stock de productos usados en consumición y hotel
+**Función:** Control de stock de bienes de uso del hotel — sábanas, toallas,
+vajilla, muebles, equipos/electrodomésticos, amenities — con categorías,
+ubicaciones, compras y ajuste manual de stock.
+
+**Corrección importante:** este módulo NO es el stock de comida/bebida.
+El inventario de productos consumibles (F&B) vive dentro de
+[[03 - Consumicion]] como sub-tab propio (`renderConsInventario()`).
+Este módulo es "Blanquería" internamente en el código.
 
 ## Conexiones
-- → [[03 - Consumicion]] — provee productos para cargar a habitaciones
 - → [[01 - Dashboard]] — alerta stock bajo
 
+## Categorías (`DB.invCategorias`)
+Blanquería, Camas y colchones, Vajillería, Equipos y electrodomésticos,
+Amenities, Muebles, Otros
+
+## Funcionalidad
+- Ajuste de stock manual (solo superadmin)
+- Registro de compras
+- Sort persistente de la tabla
+
 ## Estado
-- 🟡 Pendiente revisión integración con Consumición
+- 🟢 Funciona
 
 ## Código
-- Función: `renderInventario()`
+- Función: `renderBlanq()` (contenedor) con `renderBlanqStock()`,
+  `renderBlanqCompras()`, `renderBlanqImprimir()`, `renderBlanqUbicaciones()`
 - Archivo: `index.html`

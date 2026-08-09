@@ -17,5 +17,5 @@
 - 🟢 Funciona correctamente
 
 ## Código
-- Función: `renderAuditoria()`, `log()`
+- Función: `renderAudit()`, `log()`
 - Archivo: `index.html`

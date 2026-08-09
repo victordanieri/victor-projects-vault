@@ -30,5 +30,5 @@
 - Ninguno registrado aún
 
 ## Código
-- Función: `renderDashboard()`
-- Archivo: `index.html` línea ~700
+- Función: `renderDash()`
+- Archivo: `index.html`
