@@ -1,8 +1,9 @@
-# 📊 Dashboard
+# 📊 Vista General
 
 **Tab real en el menú:** no es un tab propio — es la sub-vista "Vista general"
-dentro del tab **Recepción** (junto con [[02 - Habitaciones]] e Historial de
-estadías). Este archivo documenta esa sub-vista específicamente.
+(botón 👁️/📊, `rt==='resumen'`) dentro del tab **Recepción**, junto con
+[[02 - Habitaciones]] e Historial de estadías. El código interno la llama
+"Dashboard" (`renderDash()`), pero ese nombre no aparece en la UI.
 
 **Función:** Resumen del día — ocupación, alertas, check-ins activos, reservas próximas
 

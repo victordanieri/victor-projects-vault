@@ -1,13 +1,13 @@
 # 🛏️ Habitaciones
 
 **Tab real en el menú:** no es un tab propio — es la sub-vista "Habitaciones"
-dentro del tab **Recepción** (junto con [[01 - Dashboard]] e Historial de
+dentro del tab **Recepción** (junto con [[01 - Vista General]] e Historial de
 estadías).
 
 **Función:** Mapa visual de habitaciones, estados, check-in/checkout, limpieza
 
 ## Conexiones
-- → [[01 - Dashboard]] — actualiza ocupación y pendiente de aseo
+- → [[01 - Vista General]] — actualiza ocupación y pendiente de aseo
 - → [[03 - Consumicion]] — al hacer check-in habilita cargos
 - → [[05 - Caja y Cobros]] — checkout genera cobro
 - → [[07 - Clientes]] — check-in registra/actualiza huésped

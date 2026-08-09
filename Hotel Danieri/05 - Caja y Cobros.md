@@ -6,7 +6,7 @@
 - ← [[02 - Habitaciones]] — checkout genera cobro
 - ← [[03 - Consumicion]] — cargos pendientes se cobran acá
 - → [[06 - Finanzas]] — movimientos van al reporte financiero
-- → [[01 - Dashboard]] — muestra cobrado hoy y pendiente
+- → [[01 - Vista General]] — muestra cobrado hoy y pendiente
 
 ## Reglas de negocio
 - Solo puede haber UNA caja abierta por recepcionista a la vez

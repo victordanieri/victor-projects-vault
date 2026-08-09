@@ -3,7 +3,7 @@
 **Función:** Gestión de canales de venta online — Booking, Expedia, Local
 
 ## Conexiones
-- → [[01 - Dashboard]] — reservas aparecen en "Próximas"
+- → [[01 - Vista General]] — reservas aparecen en "Próximas"
 - → [[02 - Habitaciones]] — reservas confirmadas bloquean habitación
 - ← [[07 - Clientes]] — datos del huésped
 

@@ -22,8 +22,8 @@
 Los 11 archivos de este vault documentan **funcionalidades**, no son 1:1 con
 los tabs del menú. La navegación real es:
 
-1. **Recepción** → sub-tabs: Vista general ([[01 - Dashboard]]), [[02 - Habitaciones]], Historial estadías
-2. **Operaciones** → sub-tabs: [[03 - Consumicion]], [[04 - Inventario]] (Blanquería), Desayuno, Cocina, Precios, Imprimir
+1. **Recepción** → sub-tabs: Vista general ([[01 - Vista General]]), [[02 - Habitaciones]], Historial estadías
+2. **Operaciones** → sub-tabs: [[03 - Consumicion]], [[04 - Blanqueria]] (Blanquería), sub-tab "Inventario" (Consumición F&B), Desayuno, Cocina, Precios, Imprimir
 3. [[05 - Caja y Cobros]] — tab propio
 4. [[06 - Finanzas]] — tab propio
 5. [[07 - Clientes]] — tab propio
@@ -38,7 +38,7 @@ los tabs del menú. La navegación real es:
 ```
 [[08 - Canales OTA]] → Reserva ingresa
         ↓
-[[01 - Dashboard]] → Aparece en "Reservas próximas"
+[[01 - Vista General]] → Aparece en "Reservas próximas"
         ↓
 [[02 - Habitaciones]] → Check-in confirma ocupación
         ↓
@@ -50,7 +50,7 @@ los tabs del menú. La navegación real es:
         ↓
 [[02 - Habitaciones]] → Habitación pasa a "Pendiente aseo"
         ↓
-[[01 - Dashboard]] → Mucama marca como limpia → Libre
+[[01 - Vista General]] → Mucama marca como limpia → Libre
 ```
 
 ---
