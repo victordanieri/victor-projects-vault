@@ -11,13 +11,10 @@
             "id": "a5b55372ee95b0c6",
             "type": "leaf",
             "state": {
-              "type": "bases",
-              "state": {
-                "file": "Untitled 3.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "Untitled 3"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -40,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -77,7 +76,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f468c57117634d62",
@@ -190,10 +190,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a5b55372ee95b0c6",
+  "active": "939e26405f0842d1",
   "lastOpenFiles": [
-    "Untitled 2.base",
     "Untitled 3.base",
+    "Untitled 2.base",
     "Untitled 1.base",
     "Untitled.base",
     "INDEX.md",
