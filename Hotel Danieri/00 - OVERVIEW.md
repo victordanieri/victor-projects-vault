@@ -8,6 +8,28 @@
 
 > ✅ **Última sincronización Obsidian ↔ código** — 09/08/2026 (commit `4b8a302`)
 
+## ⚡ ESTADO DE SESIÓN — leer esto primero
+
+> Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
+
+**Última sesión:** 2026-08-14  
+**Commit base usado:** leer index.html fresco de GitHub al iniciar  
+
+### Qué se hizo en la última sesión
+1. Deploy correcto — worker.js de GitHub reemplazó versión manual vieja
+2. Cobro Pierre Santos corregido — pago único Gs. 25.000 Tarjeta, a nombre de Isolina Riquelme
+3. Cargos pendientes en Caja & Cobros — eliminado botón "Cobrar" por línea; ahora es solo vista
+4. Bug cobro grupal con descuento — saldoGsEquiv y vuelto ahora suman Gs. de todas las habs del grupo y restan descuento; fallback con getGrupoCheckin() si _ciGrupalActivo se resetea
+5. Cancelación grupal lh-sync — cancela todas las reservas activas del mismo huésped/fecha/canal al recibir email de cancelación Booking
+6. Reservas locales lh-sync — detecta canal === 'Local' y asigna precios fijos desde Config/Habitaciones
+7. Reservas Claudio Sotomayor — 3 canceladas vía Supabase (Hab. 14, 22, 23 Booking); Hab. 22 Local quedó activa
+
+### Pendientes para la próxima sesión
+- [ ] Obligar selección método de pago antes de ingresar monto — modales check-in, check-out y deuda (identificado, no implementado)
+- [ ] Precio USD reserva Claudio Hab. 22 — corregir manual como SA desde Editar datos
+
+---
+
 ## Seguridad (capa server-side, no existía en la versión anterior)
 - Login server-side en el Worker (`/api/login`), hash `pbkdf2v2` (PBKDF2 8000 iteraciones, ajustado al presupuesto de CPU gratis de Cloudflare)
 - Rate limiting real de intentos de login vía KV (`LOGIN_ATTEMPTS`)
