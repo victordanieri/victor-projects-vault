@@ -13,20 +13,23 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Commit base usado:** leer index.html fresco de GitHub al iniciar  
+**Último commit:** 0dd1d086 — fix totalRoomUSD usa finalUSD para reservas locales lh-sync
 
 ### Qué se hizo en la última sesión
-1. Deploy correcto — worker.js de GitHub reemplazó versión manual vieja
-2. Cobro Pierre Santos corregido — pago único Gs. 25.000 Tarjeta, a nombre de Isolina Riquelme
+1. Deploy correcto — worker.js de GitHub reemplazó versión manual vieja de Dani
+2. Cobro Pierre Santos corregido — pago único Gs. 25.000 Tarjeta a nombre de Isolina Riquelme
 3. Cargos pendientes en Caja & Cobros — eliminado botón "Cobrar" por línea; ahora es solo vista
-4. Bug cobro grupal con descuento — saldoGsEquiv y vuelto ahora suman Gs. de todas las habs del grupo y restan descuento; fallback con getGrupoCheckin() si _ciGrupalActivo se resetea
+4. Bug cobro grupal con descuento — saldoGsEquiv y vuelto suman Gs. de todas las habs del grupo y restan descuento; fallback con getGrupoCheckin() si _ciGrupalActivo se resetea
 5. Cancelación grupal lh-sync — cancela todas las reservas activas del mismo huésped/fecha/canal al recibir email de cancelación Booking
 6. Reservas locales lh-sync — detecta canal === 'Local' y asigna precios fijos desde Config/Habitaciones
 7. Reservas Claudio Sotomayor — 3 canceladas vía Supabase (Hab. 14, 22, 23 Booking); Hab. 22 Local quedó activa
+8. Fix totalRoomUSD en lh-sync — reservas locales ahora graban finalUSD correcto (antes siempre quedaba 0)
+9. Comandos /inicio hotel y /fin hotel configurados en memoria y OVERVIEW
 
 ### Pendientes para la próxima sesión
 - [ ] Obligar selección método de pago antes de ingresar monto — modales check-in, check-out y deuda (identificado, no implementado)
 - [ ] Precio USD reserva Claudio Hab. 22 — corregir manual como SA desde Editar datos
+- [ ] Precio USD reserva Luis Santacruz Hab. 13 — corregir manual como SA desde Editar datos
 
 ---
 
