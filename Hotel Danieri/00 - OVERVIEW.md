@@ -13,23 +13,14 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Último commit:** 0dd1d086 — fix totalRoomUSD usa finalUSD para reservas locales lh-sync
+**Último commit:** c9734c2 — feat: obligar seleccion metodo de pago antes de ingresar monto
 
 ### Qué se hizo en la última sesión
-1. Deploy correcto — worker.js de GitHub reemplazó versión manual vieja de Dani
-2. Cobro Pierre Santos corregido — pago único Gs. 25.000 Tarjeta a nombre de Isolina Riquelme
-3. Cargos pendientes en Caja & Cobros — eliminado botón "Cobrar" por línea; ahora es solo vista
-4. Bug cobro grupal con descuento — saldoGsEquiv y vuelto suman Gs. de todas las habs del grupo y restan descuento; fallback con getGrupoCheckin() si _ciGrupalActivo se resetea
-5. Cancelación grupal lh-sync — cancela todas las reservas activas del mismo huésped/fecha/canal al recibir email de cancelación Booking
-6. Reservas locales lh-sync — detecta canal === 'Local' y asigna precios fijos desde Config/Habitaciones
-7. Reservas Claudio Sotomayor — 3 canceladas vía Supabase (Hab. 14, 22, 23 Booking); Hab. 22 Local quedó activa
-8. Fix totalRoomUSD en lh-sync — reservas locales ahora graban finalUSD correcto (antes siempre quedaba 0)
-9. Comandos /inicio hotel y /fin hotel configurados en memoria y OVERVIEW
+1. Pendientes 2 y 3 resueltos manualmente por Dani (precio USD Claudio Hab. 22 y Luis Santacruz Hab. 13)
+2. Obligar selección método de pago antes de monto — implementado en 4 modales: check-in cobro, anticipo, checkout cargo, cobrar deuda hab. Select arranca con opción vacía, input monto bloqueado hasta elegir método. Validaciones de error en todas las funciones confirm.
 
 ### Pendientes para la próxima sesión
-- [ ] Obligar selección método de pago antes de ingresar monto — modales check-in, check-out y deuda (identificado, no implementado)
-- [ ] Precio USD reserva Claudio Hab. 22 — corregir manual como SA desde Editar datos
-- [ ] Precio USD reserva Luis Santacruz Hab. 13 — corregir manual como SA desde Editar datos
+- (ninguno por ahora)
 
 ---
 
@@ -97,3 +88,4 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
