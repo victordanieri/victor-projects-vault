@@ -14,6 +14,7 @@
 
 **Última sesión:** 2026-08-14  
 **Último commit:** 7393440 — build: worker.js + rediseño reportes
+**Sesión cerrada:** 2026-08-14 22:xx PY
 
 ### Qué se hizo en la última sesión
 1. Bug USD=0 en reservas locales vía lh-sync — corregido en sesión anterior; pendiente verificar próxima reserva entrante
@@ -109,6 +110,7 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
 
 
 
