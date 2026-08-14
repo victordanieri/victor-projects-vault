@@ -13,11 +13,15 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Último commit:** c9734c2 — feat: obligar seleccion metodo de pago antes de ingresar monto
+**Último commit:** 64d966f — fix: checkout historico solo lectura para admin
 
 ### Qué se hizo en la última sesión
 1. Pendientes 2 y 3 resueltos manualmente por Dani (precio USD Claudio Hab. 22 y Luis Santacruz Hab. 13)
-2. Obligar selección método de pago antes de monto — implementado en 4 modales: check-in cobro, anticipo, checkout cargo, cobrar deuda hab. Select arranca con opción vacía, input monto bloqueado hasta elegir método. Validaciones de error en todas las funciones confirm.
+2. Obligar selección método de pago antes de monto — 4 modales (check-in, anticipo, checkout cargo, deuda hab). Select con opción vacía, input disabled hasta elegir método.
+3. Checkout anticipado solo Superadmin — recepcionista y admin bloqueados si fecha salida > hoy
+4. Barra gris (checkout) en calendario — recepcionista: no abre nada. Admin+: abre modal de checkout en modo solo lectura (sin agregar consumos/servicios, sin confirmar check-out, badge "Check-out ya realizado")
+5. Botón +Cargo y Check-out en panel de habitación ocultos si ya está en checkout
+6. doCheckout bloqueado si ya está en status=checkout
 
 ### Pendientes para la próxima sesión
 - (ninguno por ahora)
@@ -88,4 +92,5 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
 
