@@ -13,16 +13,11 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Último commit:** 7393440 — build: worker.js + rediseño reportes
-**Sesión cerrada:** 2026-08-14 22:xx PY
+**Último commit:** 02148b9 — fix: cancelación lh-sync busca por nombre+checkIn si no tiene lhId
+**Sesión cerrada:** 2026-08-14 PY
 
 ### Qué se hizo en la última sesión
-1. Bug USD=0 en reservas locales vía lh-sync — corregido en sesión anterior; pendiente verificar próxima reserva entrante
-2. Expedia Hotel Collect / Expedia Collect — identificadas, implementación pendiente
-3. Rediseño visual reporte "Resumen por día" — estilo moderno, sin bordes Excel
-4. Reporte "Historial de cajas" — agregado desglose línea a línea por pago para punteo con impreso de recepcionista
-5. Modal "Historial de Pagos" — ancho ampliado a 1400px
-6. Reporte impreso "Historial de Pagos" — rediseño moderno + totales por columna + total general USD y Gs.
+1. Fix cancelación lh-sync para reservas locales — cuando llega un email de cancelación de LH y la reserva no tiene `lhId` (reservas creadas manualmente), ahora busca por `guestName + checkIn` como fallback y la cancela automáticamente
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae totalRoomUSD correcto
@@ -110,6 +105,7 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
 
 
 
