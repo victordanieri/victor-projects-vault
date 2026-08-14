@@ -13,15 +13,35 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Último commit:** 5b5f039 — fix: USD local desde pricesUSD en lh-sync
+**Último commit:** 7393440 — build: worker.js + rediseño reportes
 
 ### Qué se hizo en la última sesión
-1. Bug USD=0 en reservas locales vía lh-sync investigado y corregido (commit 5b5f039) — reservas que entraron antes del deploy (Juan Ignacio Pellizzari 17:40/41 PY) requieren corrección manual SA; las próximas deben traer USD correcto
-2. Expedia Hotel Collect / Expedia Collect — identificadas las dos modalidades, implementación pendiente
+1. Bug USD=0 en reservas locales vía lh-sync — corregido en sesión anterior; pendiente verificar próxima reserva entrante
+2. Expedia Hotel Collect / Expedia Collect — identificadas, implementación pendiente
+3. Rediseño visual reporte "Resumen por día" — estilo moderno, sin bordes Excel
+4. Reporte "Historial de cajas" — agregado desglose línea a línea por pago para punteo con impreso de recepcionista
+5. Modal "Historial de Pagos" — ancho ampliado a 1400px
+6. Reporte impreso "Historial de Pagos" — rediseño moderno + totales por columna + total general USD y Gs.
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae totalRoomUSD correcto
 - Implementar soporte Expedia Hotel Collect y Expedia Collect en el sistema
+
+---
+
+## 🚨 REGLA DE DEPLOY — NUNCA pedir deploy manual a Dani
+
+**El deploy es 100% automático.** Flujo correcto siempre:
+1. Claude modifica `index.html`
+2. Claude pushea `index.html` a GitHub → GitHub Actions corre `deploy.yml` automáticamente → Cloudflare actualizado
+3. Claude verifica el resultado del workflow run via API de GitHub antes de dar el cambio por deployado
+
+**Claude NUNCA debe:**
+- Pedirle a Dani que corra `wrangler deploy` manualmente
+- Pedirle que haga `git pull` o cualquier comando en su PC
+- Asumir que el deploy falló sin verificar el workflow run primero
+
+**Por qué:** Claude no tiene acceso a `api.cloudflare.com` desde su entorno, pero GitHub Actions sí. El deploy manual desde la PC de Dani es el camino que históricamente rompió el sistema (worker.js local sobreescribía versiones de GitHub). Siempre usar GitHub Actions.
 
 ---
 
@@ -89,5 +109,6 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
 
 
