@@ -13,18 +13,15 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Último commit:** 64d966f — fix: checkout historico solo lectura para admin
+**Último commit:** 5b5f039 — fix: USD local desde pricesUSD en lh-sync
 
 ### Qué se hizo en la última sesión
-1. Pendientes 2 y 3 resueltos manualmente por Dani (precio USD Claudio Hab. 22 y Luis Santacruz Hab. 13)
-2. Obligar selección método de pago antes de monto — 4 modales (check-in, anticipo, checkout cargo, deuda hab). Select con opción vacía, input disabled hasta elegir método.
-3. Checkout anticipado solo Superadmin — recepcionista y admin bloqueados si fecha salida > hoy
-4. Barra gris (checkout) en calendario — recepcionista: no abre nada. Admin+: abre modal de checkout en modo solo lectura (sin agregar consumos/servicios, sin confirmar check-out, badge "Check-out ya realizado")
-5. Botón +Cargo y Check-out en panel de habitación ocultos si ya está en checkout
-6. doCheckout bloqueado si ya está en status=checkout
+1. Bug USD=0 en reservas locales vía lh-sync investigado y corregido (commit 5b5f039) — reservas que entraron antes del deploy (Juan Ignacio Pellizzari 17:40/41 PY) requieren corrección manual SA; las próximas deben traer USD correcto
+2. Expedia Hotel Collect / Expedia Collect — identificadas las dos modalidades, implementación pendiente
 
 ### Pendientes para la próxima sesión
-- (ninguno por ahora)
+- Verificar que próxima reserva local vía lh-sync trae totalRoomUSD correcto
+- Implementar soporte Expedia Hotel Collect y Expedia Collect en el sistema
 
 ---
 
