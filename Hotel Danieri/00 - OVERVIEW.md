@@ -13,11 +13,11 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-14  
-**Último commit:** 02148b9 — fix: cancelación lh-sync busca por nombre+checkIn si no tiene lhId
+**Último commit:** 0f79663 — fix: admin/recepcionista puede abrir modal checkout anticipado; botón confirmar bloqueado con aviso
 **Sesión cerrada:** 2026-08-14 PY
 
 ### Qué se hizo en la última sesión
-1. Fix cancelación lh-sync para reservas locales — cuando llega un email de cancelación de LH y la reserva no tiene `lhId` (reservas creadas manualmente), ahora busca por `guestName + checkIn` como fallback y la cancela automáticamente
+1. Fix modal check-out anticipado — admin y recepcionista ahora pueden abrir el modal aunque la fecha de salida no haya llegado; el botón "Confirmar Check-Out" queda deshabilitado con aviso rojo interno; solo Superadmin puede confirmar anticipado
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae totalRoomUSD correcto
