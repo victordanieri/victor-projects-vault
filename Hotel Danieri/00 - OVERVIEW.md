@@ -13,13 +13,12 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-16  
-**Último commit:** 422f46d3 — feat: tooltip calendario muestra total USD y Gs. de la reserva  
+**Último commit:** f16668c — feat: fila buffer siempre visible en Pendientes re-ubicar + drop desasigna hab  
 **Sesión cerrada:** 2026-08-16 PY
 
 ### Qué se hizo en la última sesión
-1. **Editar método de pago (admin+):** Botón ✏️ en Historial de pagos (tab inline y modal). Mini-modal para cambiar método. Afecta arqueo de caja automáticamente. Fix onclick con `window._editPayId` staging pattern.
-2. **Reservas manuales en amarillo:** Reservas con `obs` no vacío + `checkIn >= 2026-08-17` + estado reserva → se muestran en amarillo en el calendario. Al hacer check-in pasan a verde normal.
-3. **Tooltip con precios:** El tooltip del calendario ahora muestra Total USD y Total Gs. de la reserva (en verde), tomando `totalRoomUSD` y `totalRoomGs` del checkin.
+1. **Fix modal checkout USD ($0.00):** El modal mostraba $0.00 en alojamiento para pagos en Efectivo USD. Dos causas: (a) filtro `alojPayments` no encontraba pagos con concept `'Check-in hab X'` (sin punto) — agregado `'hab '` al filtro; (b) branch de render asumía que todo USD era IVR — corregido para usar `_alojPaidInUSD` directamente cuando no es IVR. Ahora muestra correctamente el monto cobrado.
+2. **Sección "Pendientes de re-ubicar" en calendario:** Nueva sección al final del calendario (grupo colapsable amber) para reservas sin habitación asignada (`roomId` nulo o no existente en DB). Siempre visible con al menos 1 fila buffer `~No asignado~`. Reservas reales sin asignar aparecen arriba del buffer con barra amber llamativa. Drag desde buffer hacia habitación real asigna la reserva. Drag desde habitación real hacia buffer la desasigna temporalmente.
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
@@ -103,3 +102,4 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
