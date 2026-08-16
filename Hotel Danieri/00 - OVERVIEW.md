@@ -12,16 +12,17 @@
 
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
-**Última sesión:** 2026-08-14  
-**Último commit:** 0f79663 — fix: admin/recepcionista puede abrir modal checkout anticipado; botón confirmar bloqueado con aviso
-**Sesión cerrada:** 2026-08-14 PY
+**Última sesión:** 2026-08-16  
+**Último commit:** 1b5d886d — fix: onclick confirmEditPayMethod usa window._editPayId para evitar quoting roto  
+**Sesión cerrada:** 2026-08-16 PY
 
 ### Qué se hizo en la última sesión
-1. Fix modal check-out anticipado — admin y recepcionista ahora pueden abrir el modal aunque la fecha de salida no haya llegado; el botón "Confirmar Check-Out" queda deshabilitado con aviso rojo interno; solo Superadmin puede confirmar anticipado
+1. **Editar método de pago (admin+):** Nueva funcionalidad en Caja & Cobros — botón ✏️ en cada fila del Historial de pagos (tab inline y modal). Al clickear abre mini-modal para cambiar el método. Afecta automáticamente el arqueo de caja (byM se recalcula dinámicamente desde DB.payments). Disponible para admin+.
+2. **Fix onclick quoting:** El primer deploy tenía bug — `JSON.stringify(payId)` generaba comillas dobles rotas dentro del atributo `onclick`. Fix: se usa `window._editPayId` staging pattern para pasar el ID al handler.
 
 ### Pendientes para la próxima sesión
-- Verificar que próxima reserva local vía lh-sync trae totalRoomUSD correcto
-- Implementar soporte Expedia Hotel Collect y Expedia Collect en el sistema
+- Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
+- Implementar soporte **Expedia Hotel Collect** y **Expedia Collect** en el sistema
 
 ---
 
@@ -105,8 +106,3 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
-
-
-
-
-
