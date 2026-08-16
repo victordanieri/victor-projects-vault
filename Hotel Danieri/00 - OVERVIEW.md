@@ -13,16 +13,18 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-16  
-**Último commit:** 1b5d886d — fix: onclick confirmEditPayMethod usa window._editPayId para evitar quoting roto  
+**Último commit:** 422f46d3 — feat: tooltip calendario muestra total USD y Gs. de la reserva  
 **Sesión cerrada:** 2026-08-16 PY
 
 ### Qué se hizo en la última sesión
-1. **Editar método de pago (admin+):** Nueva funcionalidad en Caja & Cobros — botón ✏️ en cada fila del Historial de pagos (tab inline y modal). Al clickear abre mini-modal para cambiar el método. Afecta automáticamente el arqueo de caja (byM se recalcula dinámicamente desde DB.payments). Disponible para admin+.
-2. **Fix onclick quoting:** El primer deploy tenía bug — `JSON.stringify(payId)` generaba comillas dobles rotas dentro del atributo `onclick`. Fix: se usa `window._editPayId` staging pattern para pasar el ID al handler.
+1. **Editar método de pago (admin+):** Botón ✏️ en Historial de pagos (tab inline y modal). Mini-modal para cambiar método. Afecta arqueo de caja automáticamente. Fix onclick con `window._editPayId` staging pattern.
+2. **Reservas manuales en amarillo:** Reservas con `obs` no vacío + `checkIn >= 2026-08-17` + estado reserva → se muestran en amarillo en el calendario. Al hacer check-in pasan a verde normal.
+3. **Tooltip con precios:** El tooltip del calendario ahora muestra Total USD y Total Gs. de la reserva (en verde), tomando `totalRoomUSD` y `totalRoomGs` del checkin.
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
 - Implementar soporte **Expedia Hotel Collect** y **Expedia Collect** en el sistema
+- Verificar comportamiento al cancelar reservas manuales amarillas (si se eliminan del calendario correctamente)
 
 ---
 
@@ -47,15 +49,10 @@
 - Rate limiting real de intentos de login vía KV (`LOGIN_ATTEMPTS`)
 - Autorización de escritura por rol en el servidor (no solo en el front)
 - Bloqueo de concurrencia optimista: si dos sesiones editan el mismo blob, la que quedó desactualizada recibe un aviso (HTTP 409) y debe refrescar antes de guardar — simétrico para todos los roles, incluido superadmin
-- Detalle completo de esta capa: ver memoria `project-hotel-danieri-security` (no está en el vault, es infraestructura de backend, no un módulo funcional)
 
 ---
 
 ## Navegación real del sistema (8 tabs, `navItems()` en index.html:935)
-
-Los 8 módulos principales del vault ahora son 1:1 con los 8 tabs reales del
-menú. Los que tienen sub-tabs son carpetas con un archivo índice (`0N - Nombre.md`)
-más sus divisiones adentro:
 
 1. [[01 - Recepcion]] (carpeta) → [[Vista General]], [[Habitaciones]], Historial estadías
 2. [[02 - Operaciones]] (carpeta) → [[Consumicion]], [[Inventario (FB)]], [[Blanqueria]], [[Cocina]], [[Otros Sub-tabs]]
@@ -93,7 +90,7 @@ más sus divisiones adentro:
 ## Estado general
 - 🟢 Sistema online y funcionando (Cloudflare Worker)
 - 🟢 Supabase como fuente de verdad
-- 🟢 Login server-side + roles + rate limit + concurrencia optimista (409) — 5 niveles de hardening completados
+- 🟢 Login server-side + roles + rate limit + concurrencia optimista (409)
 - 🟢 Moneda simplificada a solo USD + Gs. (BRL/ARS eliminados)
 - 🟡 Integraciones entre módulos — pendiente revisión
 - 🔴 Extensión Chrome Booking — pendiente
