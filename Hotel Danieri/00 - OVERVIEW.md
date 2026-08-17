@@ -12,13 +12,15 @@
 
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
-**Última sesión:** 2026-08-16  
-**Último commit:** f16668c — feat: fila buffer siempre visible en Pendientes re-ubicar + drop desasigna hab  
-**Sesión cerrada:** 2026-08-16 PY
+**Última sesión:** 2026-08-17  
+**Último commit:** 911068f — fix: ocultar botón Historial pagos para recepcionista  
+**Sesión cerrada:** 2026-08-17 PY
 
 ### Qué se hizo en la última sesión
-1. **Fix modal checkout USD ($0.00):** El modal mostraba $0.00 en alojamiento para pagos en Efectivo USD. Dos causas: (a) filtro `alojPayments` no encontraba pagos con concept `'Check-in hab X'` (sin punto) — agregado `'hab '` al filtro; (b) branch de render asumía que todo USD era IVR — corregido para usar `_alojPaidInUSD` directamente cuando no es IVR. Ahora muestra correctamente el monto cobrado.
-2. **Sección "Pendientes de re-ubicar" en calendario:** Nueva sección al final del calendario (grupo colapsable amber) para reservas sin habitación asignada (`roomId` nulo o no existente en DB). Siempre visible con al menos 1 fila buffer `~No asignado~`. Reservas reales sin asignar aparecen arriba del buffer con barra amber llamativa. Drag desde buffer hacia habitación real asigna la reserva. Drag desde habitación real hacia buffer la desasigna temporalmente.
+1. **Drag & drop recepcionista — solo checkIn hoy sin confirmar:** Recepcionista puede mover reservas entre habitaciones únicamente si `checkIn === hoy` y el huésped no confirmó check-in. Bloqueado para fechas pasadas/futuras y reservas ya activas. Validación en `dragStart` y `dropOnCell`.
+2. **Fix crítico — check-in procesable sin caja abierta:** `mConfirmCheckin` y `doConfirmCheckin` ahora bloquean hard si no hay `DB.cajaActual`. Corrige caso real donde un cobro se registró con `cajaId: null`. Doble protección: al abrir el modal y al confirmar.
+3. **SA puede asignar caja retroactivamente:** Botón ⚠ Sin caja en historial de pagos (solo superadmin, solo en pagos sin cajaId). Abre modal para ingresar N° de caja manualmente. Busca la caja en DB por número; si no existe usa referencia manual con `_cajaNumManual`.
+4. **Botón Historial pagos oculto para recepcionista:** Solo visible para admin y superadmin.
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
@@ -102,4 +104,5 @@ Tarea programada `hotel-danieri-vault-sync`, corre todos los días a las 10am
 el hash de referencia de abajo y actualiza solo los archivos afectados.
 Última fecha de referencia usada por la rutina: commit `4b8a302` (2026-08-07).
 Si necesitás forzar un sync fuera de horario, pedilo directamente.
+
 
