@@ -13,14 +13,13 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-17  
-**Último commit:** 911068f — fix: ocultar botón Historial pagos para recepcionista  
+**Último commit:** 3369581 — feat: SA puede cambiar habitacion desde modal de reserva + bloqueo conflicto solapamiento  
 **Sesión cerrada:** 2026-08-17 PY
 
 ### Qué se hizo en la última sesión
-1. **Drag & drop recepcionista — solo checkIn hoy sin confirmar:** Recepcionista puede mover reservas entre habitaciones únicamente si `checkIn === hoy` y el huésped no confirmó check-in. Bloqueado para fechas pasadas/futuras y reservas ya activas. Validación en `dragStart` y `dropOnCell`.
-2. **Fix crítico — check-in procesable sin caja abierta:** `mConfirmCheckin` y `doConfirmCheckin` ahora bloquean hard si no hay `DB.cajaActual`. Corrige caso real donde un cobro se registró con `cajaId: null`. Doble protección: al abrir el modal y al confirmar.
-3. **SA puede asignar caja retroactivamente:** Botón ⚠ Sin caja en historial de pagos (solo superadmin, solo en pagos sin cajaId). Abre modal para ingresar N° de caja manualmente. Busca la caja en DB por número; si no existe usa referencia manual con `_cajaNumManual`.
-4. **Botón Historial pagos oculto para recepcionista:** Solo visible para admin y superadmin.
+1. **Recepcionista mueve reservas sin restricción de precio** — eliminada validación de precio/tipo en drag & drop; solo se valida `checkIn === hoy` y `!checkedIn`.
+2. **Bloqueo de conflicto de solapamiento en drag & drop** — antes de ejecutar cualquier move se verifica si la habitación destino tiene otra reserva activa solapada en fechas; si hay conflicto, cancela el drop con toast de error.
+3. **SA puede cambiar habitación desde modal de reserva** — nuevo bloque amarillo "SUPERADMIN — Cambiar habitación" con dropdown de todas las habitaciones; valida conflictos antes de ejecutar; registra en log.
 
 ### Pendientes para la próxima sesión
 - Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
