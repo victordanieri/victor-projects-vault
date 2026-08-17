@@ -2,8 +2,14 @@
 
 ## ⚡ ESTADO DE SESIÓN
 - **Última sesión:** 2026-08-17
-- **Pendientes activos:**
-  - (sesión inicial — definir junto a Dani)
+- **Hecho:**
+  - Creado sistema `/inicio trading` / `/fin trading` con vault en `Trading/00-OVERVIEW.md`
+  - Desarrollado indicador MT5 `StochCross` (Stoch 14,3,3, cálculo sobre cierre de vela)
+    - `StochCross_Candles.mq5` — colorea velas en chart principal (dorado alcista, magenta bajista)
+    - `StochCross_Sub.mq5` — subventana con K/D + dots de señal
+    - Condiciones: cruce K/D + zona (<20 alcista, >80 bajista) + tipo de vela coincidente
+    - Inputs configurables: períodos, niveles, colores
+- **Pendientes activos:** ninguno
 
 ---
 
@@ -35,7 +41,7 @@
 
 ---
 
-## 🤖 EAs desarrollados
+## 🤖 EAs e indicadores desarrollados
 
 ### Algoritmo SMTV1F (MQL4)
 - EA propio, licenciado a **Financial Broker SA**
@@ -44,6 +50,13 @@
 ### Scherman Master System (MQL4/MQL5)
 - Multi-estrategia: grid + híbrido
 - Sistema complejo con múltiples modos
+
+### StochCross (MQL5) — 2026-08-17
+- Indicador de cruce del Stochastic(14,3,3) sobre cierre de vela
+- Dos archivos: `StochCross_Candles.mq5` (chart) + `StochCross_Sub.mq5` (subventana)
+- Señal alcista: K cruza D hacia arriba + K<20 + vela alcista → vela dorada + dot verde
+- Señal bajista: K cruza D hacia abajo + K>80 + vela bajista → vela magenta + dot rojo
+- Todos los parámetros configurables via inputs
 
 ### Backtesting framework (Python)
 - NAS100, WMA en Typical Price
@@ -73,4 +86,7 @@
 ---
 
 ## 📝 Notas de sesiones anteriores
-_(se irán agregando con /fin trading)_
+
+### 2026-08-17
+- Primera sesión. Setup del vault de trading.
+- Creado indicador StochCross para MT5 (ver sección EAs).
