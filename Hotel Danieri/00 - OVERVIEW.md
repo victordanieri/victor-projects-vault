@@ -13,18 +13,16 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-18  
-**Último commit:** d625d29 — feat(ux): badge Expedia Collect en modal de reserva con instrucción IVR  
+**Último commit:** 2b222ee — fix(checkout): TOTAL extras y saldo pendiente en USD cuando corresponde  
 **Sesión cerrada:** 2026-08-18 PY
 
 ### Qué se hizo en la última sesión
-1. **SA puede reasignar caja desde modal editar pago** — en Historial de Pagos, el lápiz de edición ahora incluye sección "SUPERADMIN — Reasignar caja" con dropdown de todas las cajas (N°, cajero, abierta/cerrada), caja actual pre-seleccionada.
-2. **Fix Expedia Collect — monto correcto en lh-sync** — el Apps Script (`lh_gmail_sync.gs`) ahora detecta `"Expedia Collect"` en el email y captura `Remittance amount` (neto) como campo separado `remittanceUSD`. El Worker usa ese valor como `totalRoomUSD` en lugar del bruto `Total Price`. También corregido bug donde `totalRoomUSD` y `amountUSD` del cargo usaban `totalUSD` en vez de `finalUSD`.
-3. **Badge visual Expedia Collect en modal de reserva** — cuando `paymentModel === 'expedia_collect'`, el modal muestra un aviso violeta: "EXPEDIA COLLECT — TARJETA VIRTUAL / No cobrar al huésped / Cargar en terminal IVR la tarjeta virtual de Expedia por US$ X.XX al check-in."
-4. **Reserva Jorge Narita corregida manualmente** — `totalRoomUSD` editado a `145.86` (remittance real). Las próximas Expedia Collect entran correctas automáticamente.
+1. **Análisis cancelación reserva manual (Alberto Hab. 11)** — verificado que lh-sync no puede cancelar reservas cargadas manualmente (sin `lhId`). Decisión: se cancela manualmente. No se implementó fix automático.
+2. **Fix checkout — servicios adicionales pagados en USD** — el modal de checkout ahora muestra correctamente el monto en USD en: (a) ítem individual del servicio, (b) header "PAGADO —", (c) fila "✚ Servicios adicionales" del resumen inferior, (d) fila "TOTAL extras" con USD pagado + Gs. pendiente, (e) "Pago parcial recibido" en USD.
+3. **Fix `doCobrarHab` — guardar `cargoId` en payments** — al cobrar deuda de habitación con un solo cargo pendiente, el payment ahora incluye `cargoId` para vincular correctamente. En pago parcial multi-cargo, se crea un payment por cargo con su `cargoId`. Retrocompatibilidad: fallback por `concept.indexOf('deuda')` para payments anteriores al fix.
 
 ### Pendientes para la próxima sesión
-- Verificar si hay otras reservas turquesas (manuales) de Expedia Collect pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
-- Verificar comportamiento al cancelar reservas manuales amarillas (si se eliminan del calendario correctamente)
+- Verificar si hay otras reservas turquesas (Expedia Collect) pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
 - Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
 
 ---
