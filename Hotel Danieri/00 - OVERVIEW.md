@@ -12,19 +12,20 @@
 
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
-**Última sesión:** 2026-08-17  
-**Último commit:** 3369581 — feat: SA puede cambiar habitacion desde modal de reserva + bloqueo conflicto solapamiento  
-**Sesión cerrada:** 2026-08-17 PY
+**Última sesión:** 2026-08-18  
+**Último commit:** d625d29 — feat(ux): badge Expedia Collect en modal de reserva con instrucción IVR  
+**Sesión cerrada:** 2026-08-18 PY
 
 ### Qué se hizo en la última sesión
-1. **Recepcionista mueve reservas sin restricción de precio** — eliminada validación de precio/tipo en drag & drop; solo se valida `checkIn === hoy` y `!checkedIn`.
-2. **Bloqueo de conflicto de solapamiento en drag & drop** — antes de ejecutar cualquier move se verifica si la habitación destino tiene otra reserva activa solapada en fechas; si hay conflicto, cancela el drop con toast de error.
-3. **SA puede cambiar habitación desde modal de reserva** — nuevo bloque amarillo "SUPERADMIN — Cambiar habitación" con dropdown de todas las habitaciones; valida conflictos antes de ejecutar; registra en log.
+1. **SA puede reasignar caja desde modal editar pago** — en Historial de Pagos, el lápiz de edición ahora incluye sección "SUPERADMIN — Reasignar caja" con dropdown de todas las cajas (N°, cajero, abierta/cerrada), caja actual pre-seleccionada.
+2. **Fix Expedia Collect — monto correcto en lh-sync** — el Apps Script (`lh_gmail_sync.gs`) ahora detecta `"Expedia Collect"` en el email y captura `Remittance amount` (neto) como campo separado `remittanceUSD`. El Worker usa ese valor como `totalRoomUSD` en lugar del bruto `Total Price`. También corregido bug donde `totalRoomUSD` y `amountUSD` del cargo usaban `totalUSD` en vez de `finalUSD`.
+3. **Badge visual Expedia Collect en modal de reserva** — cuando `paymentModel === 'expedia_collect'`, el modal muestra un aviso violeta: "EXPEDIA COLLECT — TARJETA VIRTUAL / No cobrar al huésped / Cargar en terminal IVR la tarjeta virtual de Expedia por US$ X.XX al check-in."
+4. **Reserva Jorge Narita corregida manualmente** — `totalRoomUSD` editado a `145.86` (remittance real). Las próximas Expedia Collect entran correctas automáticamente.
 
 ### Pendientes para la próxima sesión
-- Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
-- Implementar soporte **Expedia Hotel Collect** y **Expedia Collect** en el sistema
+- Verificar si hay otras reservas turquesas (manuales) de Expedia Collect pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
 - Verificar comportamiento al cancelar reservas manuales amarillas (si se eliminan del calendario correctamente)
+- Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
 
 ---
 
