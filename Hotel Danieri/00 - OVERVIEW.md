@@ -12,14 +12,14 @@
 
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
-**Última sesión:** 2026-08-18  
-**Último commit:** 2b222ee — fix(checkout): TOTAL extras y saldo pendiente en USD cuando corresponde  
-**Sesión cerrada:** 2026-08-18 PY
+**Última sesión:** 2026-08-19  
+**Último commit:** dd8e363 — feat(checkin): modal bienvenida WhatsApp obligatorio post check-in + config mensaje en cfgHotel  
+**Sesión cerrada:** 2026-08-19 PY
 
 ### Qué se hizo en la última sesión
-1. **Análisis cancelación reserva manual (Alberto Hab. 11)** — verificado que lh-sync no puede cancelar reservas cargadas manualmente (sin `lhId`). Decisión: se cancela manualmente. No se implementó fix automático.
-2. **Fix checkout — servicios adicionales pagados en USD** — el modal de checkout ahora muestra correctamente el monto en USD en: (a) ítem individual del servicio, (b) header "PAGADO —", (c) fila "✚ Servicios adicionales" del resumen inferior, (d) fila "TOTAL extras" con USD pagado + Gs. pendiente, (e) "Pago parcial recibido" en USD.
-3. **Fix `doCobrarHab` — guardar `cargoId` en payments** — al cobrar deuda de habitación con un solo cargo pendiente, el payment ahora incluye `cargoId` para vincular correctamente. En pago parcial multi-cargo, se crea un payment por cargo con su `cargoId`. Retrocompatibilidad: fallback por `concept.indexOf('deuda')` para payments anteriores al fix.
+1. **Modal bienvenida WhatsApp post check-in** — luego de confirmar check-in y pago, aparece automáticamente un modal sin X ni botón Omitir. Solo tiene el botón verde "Abrir WhatsApp y enviar bienvenida" que abre `wa.me/` con el mensaje pre-cargado al número del huésped. Al hacer click el modal se cierra. Aplica a todas las reservas futuras.
+2. **Mensaje configurable desde Config → Hotel** — nuevo campo de texto editable con soporte para `{nombre}` y `{habitacion}` como placeholders. Guardado en `DB.hotel.msgBienvenidaWsp`. Incluye botón "Restaurar mensaje por defecto".
+3. **Mensaje por defecto:** "Hola {nombre} 👋 Te damos la bienvenida al Danieri Asunción Hotel. Estamos a tu disposición por este medio para cualquier consulta durante tu estadía. ¡Esperamos que disfrutes tu estadía con nosotros! 🏨 — Danieri Asunción Hotel"
 
 ### Pendientes para la próxima sesión
 - Verificar si hay otras reservas turquesas (Expedia Collect) pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
