@@ -13,18 +13,19 @@
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
 **Última sesión:** 2026-08-19  
-**Último commit:** dd8e363 — feat(checkin): modal bienvenida WhatsApp obligatorio post check-in + config mensaje en cfgHotel  
+**Último commit:** 5463830 — fix(reserva): campos anticipo readonly para no-SA cuando ya hay anticipo registrado  
 **Sesión cerrada:** 2026-08-19 PY
 
 ### Qué se hizo en la última sesión
-1. **Modal bienvenida WhatsApp post check-in** — luego de confirmar check-in y pago, aparece automáticamente un modal sin X ni botón Omitir. Solo tiene el botón verde "Abrir WhatsApp y enviar bienvenida" que abre `wa.me/` con el mensaje pre-cargado al número del huésped. Al hacer click el modal se cierra. Aplica a todas las reservas futuras.
-2. **Mensaje configurable desde Config → Hotel** — nuevo campo de texto editable con soporte para `{nombre}` y `{habitacion}` como placeholders. Guardado en `DB.hotel.msgBienvenidaWsp`. Incluye botón "Restaurar mensaje por defecto".
-3. **Mensaje por defecto:** "Hola {nombre} 👋 Te damos la bienvenida al Danieri Asunción Hotel. Estamos a tu disposición por este medio para cualquier consulta durante tu estadía. ¡Esperamos que disfrutes tu estadía con nosotros! 🏨 — Danieri Asunción Hotel"
+1. **Fix consumición duplicada** — `saDeletePayment` (botón ✕ en Caja & Cobros) ahora anula la orden en `DB.consumicion.orders` y repone stock automáticamente cuando el pago es de consumición (`isConsumicion:true`). Payment de Lobby ahora guarda `orderId` para el linkeo.
+2. **Botón SA anular orden directo** — nuevo botón ✕ en la tabla "Órdenes de hoy" (Operaciones → Consumición) para anular órdenes huérfanas sin tocar el stock (casos donde el pago ya fue eliminado manualmente).
+3. **Botón SA editar responsable de caja** — nuevo botón "✎ Editar caja" en el header verde de Caja & Cobros. Permite cambiar `abiertaPor` de la caja activa y actualiza `staffResp` de todos sus pagos. Fix aplicado para leer `DB.cajaActual` directamente (no la copia en `DB.cajas`).
+4. **Fix color calendario reservas con anticipo posterior** — `ciStatus()` ahora detecta `ci.paidInAdvance=true` y retorna `res-paid` directamente. Además, `obs-warn` (turquesa con `!important`) ya no pisa el color de reservas `res-paid`.
+5. **Fix campos anticipo readonly** — en editar reserva, si ya hay anticipo registrado, los campos de monto y método quedan `readonly`/`disabled` para recepcionistas y admins. Solo SA puede modificarlos (con etiqueta "(SA)" en amarillo).
 
 ### Pendientes para la próxima sesión
-- Verificar si hay otras reservas turquesas (Expedia Collect) pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
+- Verificar si hay otras reservas Expedia Collect pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
 - Verificar que próxima reserva local vía lh-sync trae `totalRoomUSD` correcto
-
 ---
 
 ## 🚨 REGLA DE DEPLOY — NUNCA pedir deploy manual a Dani
