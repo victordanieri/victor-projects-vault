@@ -10,30 +10,24 @@
 
 ---
 
-## QUE SE HIZO EN LA SESION 2026-08-20
+## QUE SE HIZO EN LA SESION 2026-08-20 (continuacion)
 
-- Rediseño UI completo: Inter font, SVG icons, sidebar blanco minimalista, acento sky blue #0EA5E9
-- Ícono AIHPY: grupo de 3 hoteles de distintas alturas con ventanitas (reemplazó la casa genérica)
-- Login mejorado: card centrada con logo, Enter activa el ingreso
-- Validación de token al arrancar: llama /api/me contra el servidor (no confía ciegamente en localStorage)
-- Cambio de contraseña propio: click en avatar/rol del sidebar → modal
-- Reset de contraseña desde Usuarios (superadmin): sin necesitar la contraseña actual
-- Corrección bug crítico: login ahora verifica SHA-256 legacy Y PBKDF2, migra automáticamente al hacer login
-- Corrección bug salt: PATCH /api/usuarios/:id ahora busca el email real en Supabase para calcular el salt
-- Permisos granulares por rol implementados en backend y frontend:
-  - Leer: todos los roles autenticados
-  - Crear: superadmin, presidencia, admin, tesoreria
-  - Editar: superadmin, presidencia, admin
-  - Eliminar: superadmin
-- Botones de acción ocultos en UI según rol del usuario logueado
-- Mínimo de contraseña: 6 caracteres (era 8)
-- Contraseñas de Victor y Juan reseteadas y verificadas funcionando con PBKDF2
-- Nuevos endpoints: GET /api/me, POST /api/me/password, PATCH mejorado /api/usuarios/:id
+- Rediseño UI completo: sidebar oscuro #1B2B4B, tipografía Inter embebida en base64
+- Inter font (misma de Notion) embebida directamente en el HTML — no depende de CDN externo
+- CSP del worker actualizado: font-src data: + img-src data: para permitir fuentes e íconos base64
+- Favicon SVG embebido (grupo de hoteles azul) — sin error 404 en consola
+- Colores sidebar: fondo azul slate medio, logout visible, textos más legibles
+- Jerarquía tipográfica: SUPERADMIN en uppercase, secciones con tracking, pesos corregidos (max 700)
+- Consola limpia: solo muestra [AIHPY Font] Inter, sans-serif (log diagnóstico, quitar cuando se quiera)
+- Permisos granulares por rol: frontend + backend
+- Fix contraseñas: PBKDF2 correcto, reset desde Usuarios para superadmin
+- Validación token al arrancar contra /api/me
 
 ---
 
 ## PENDIENTES PARA PROXIMA SESION
 
+- Quitar console.log de diagnóstico de fuente (index.html línea 191)
 - Coordinar con Juan los datos de los 68 socios para carga
 - Crear usuarios adicionales (Administradora, Tesoreria, viewers socios)
 - Probar módulos: Organizaciones, Socios, Tareas, Cobranzas, Solicitudes
@@ -51,8 +45,8 @@
 - Supabase: imtymjxcwbityqdigpvm.supabase.co
 - GitHub repo: victordanieri/aihpy-system
 - Cloudflare worker: aihpy-system
-- Victor: victordanieri@gmail.com / (contraseña reseteada esta sesión) rol superadmin
-- Juan: gerencia@aihpy.org.py / (contraseña reseteada esta sesión) rol presidencia
+- Victor: victordanieri@gmail.com / (contraseña reseteada) rol superadmin
+- Juan: gerencia@aihpy.org.py / (contraseña reseteada) rol presidencia
 
 ---
 
@@ -73,7 +67,7 @@ GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO service_role;
 
 ## FASES
 
-FASE 1 COMPLETADA: Login, infraestructura, seguridad, deploy, dashboard, UI rediseño, permisos por rol
+FASE 1 COMPLETADA: Login, infraestructura, seguridad, deploy, dashboard, UI rediseño, permisos por rol, tipografía Inter
 FASE 2 EN CURSO: Cargar datos reales (68 socios), probar módulos, usuarios adicionales
 FASE 3: Dashboard Presidencia, KPIs, alertas, Centro de Decisiones
 FASE 4: Gmail, Calendar, Drive
