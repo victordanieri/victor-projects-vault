@@ -12,16 +12,12 @@
 
 > Este bloque lo actualiza Claude al final de cada sesión. No editar manualmente.
 
-**Última sesión:** 2026-08-19  
-**Último commit:** 5463830 — fix(reserva): campos anticipo readonly para no-SA cuando ya hay anticipo registrado  
-**Sesión cerrada:** 2026-08-19 PY
+**Última sesión:** 2026-08-20  
+**Último commit:** 807215c — fix(reporte-caja): USD amounts show 2 decimals instead of rounded integer  
+**Sesión cerrada:** 2026-08-20 PY
 
 ### Qué se hizo en la última sesión
-1. **Fix consumición duplicada** — `saDeletePayment` (botón ✕ en Caja & Cobros) ahora anula la orden en `DB.consumicion.orders` y repone stock automáticamente cuando el pago es de consumición (`isConsumicion:true`). Payment de Lobby ahora guarda `orderId` para el linkeo.
-2. **Botón SA anular orden directo** — nuevo botón ✕ en la tabla "Órdenes de hoy" (Operaciones → Consumición) para anular órdenes huérfanas sin tocar el stock (casos donde el pago ya fue eliminado manualmente).
-3. **Botón SA editar responsable de caja** — nuevo botón "✎ Editar caja" en el header verde de Caja & Cobros. Permite cambiar `abiertaPor` de la caja activa y actualiza `staffResp` de todos sus pagos. Fix aplicado para leer `DB.cajaActual` directamente (no la copia en `DB.cajas`).
-4. **Fix color calendario reservas con anticipo posterior** — `ciStatus()` ahora detecta `ci.paidInAdvance=true` y retorna `res-paid` directamente. Además, `obs-warn` (turquesa con `!important`) ya no pisa el color de reservas `res-paid`.
-5. **Fix campos anticipo readonly** — en editar reserva, si ya hay anticipo registrado, los campos de monto y método quedan `readonly`/`disabled` para recepcionistas y admins. Solo SA puede modificarlos (con etiqueta "(SA)" en amarillo).
+1. **Fix redondeo USD en reporte de caja** — Los montos USD en efectivo se mostraban redondeados al entero (`Math.round`) en 3 lugares: "+ Ingresos efectivo", "Cobrado USD" (KPI resumen) y "Efectivo USD" (fila de métodos). Ahora todos usan `.toFixed(2)` y muestran el valor real (ej: `$ 207.50` en vez de `$ 208`). El saldo final y Total General ya estaban correctos.
 
 ### Pendientes para la próxima sesión
 - Verificar si hay otras reservas Expedia Collect pre-fix que necesiten corrección manual de `totalRoomUSD` — revisar Historial estadías filtrando por origen Expedia
